@@ -18,7 +18,7 @@ public class BoardRepositoryTest {
     @Rollback
     @DisplayName("mybatis 글 작성 테스트")
     public void boardSaveTest1() {
-        BoardDTO boardDTO = new BoardDTO(0L, "kot", "1234", "Test", "Testing...", 0, LocalDateTime.now(), null);
+        BoardDTO boardDTO = new BoardDTO(0, "kot", "1234", "Test", "Testing...", 0, LocalDateTime.now(), null);
         BoardEntity boardEntity = BoardEntity.toBoardEntity(boardDTO);
         br.save(boardEntity);
     }
