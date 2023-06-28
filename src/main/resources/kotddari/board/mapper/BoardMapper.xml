@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- mapper 설정 -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- Mapper를 사용하는 Repository의 전체 경로 -->
+<mapper namespace="kotddari.board.mapper.BoardMapper">
+
+    <!-- C -->
+    <insert id="save" parameterType="kotddari.board.dto.BoardDTO">
+        INSERT INTO board_table (board_writer, board_password, board_title, board_content, created_time)
+        VALUES(#{board_writer}, #{board_password}, #{board_title}, #{board_content}, NOW())
+    </insert>
+
+    <!-- R -->
+    <select id="selectOne" resultType="kotddari.board.dto.BoardDTO">
+        SELECT * FROM board_table WHERE board_id = #{board_id}
+    </select>
+
+    <!-- R -->
+    <select id="selectAll" resultType="kotddari.board.dto.BoardDTO">
+        SELECT * FROM board_table
+    </select>
+
+    <!-- U -->
+    <update id="update" parameterType="kotddari.board.dto.BoardDTO">
+        UPDATE board_table SET board_title = #{board_title}, board_content = #{board_content} WHERE board_id = #{board_id}
+    </update>
+
+    <!-- D -->
+    <delete id="delete" parameterType="kotddari.board.dto.BoardDTO">
+        DELETE FROM board_table WHERE board_id = #{board_id}
+    </delete>
+
+</mapper>
