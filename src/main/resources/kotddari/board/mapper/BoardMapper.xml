@@ -24,7 +24,7 @@
 
     <!-- U -->
     <update id="update" parameterType="kotddari.board.dto.BoardDTO">
-        UPDATE board_table SET board_title = #{board_title}, board_content = #{board_content} WHERE board_id = #{board_id}
+        UPDATE board_table SET board_title = #{board_title}, board_content = #{board_content}, updated_time = NOW() WHERE board_id = #{board_id}
     </update>
 
     <!-- D -->

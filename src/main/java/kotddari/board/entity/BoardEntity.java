@@ -4,12 +4,12 @@ import kotddari.board.dto.BoardDTO;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 // DB의 테이블 역할을 하는 클래스
 @Getter
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@AllArgsConstructor
 @Table(name = "board_table")
 public class BoardEntity extends BaseEntity {
     @Id
@@ -30,6 +30,15 @@ public class BoardEntity extends BaseEntity {
 
     @Column(nullable = false)
     private int boardHits;
+
+    public BoardEntity(int id, String boardWriter, String boardPassword, String boardTitle, String boardContent, int boardHits) {
+        this.id = id;
+        this.boardWriter = boardWriter;
+        this.boardPassword = boardPassword;
+        this.boardTitle = boardTitle;
+        this.boardContent = boardContent;
+        this.boardHits = boardHits;
+    }
 
     public static BoardEntity toBoardEntity(BoardDTO boardDTO) {
         return new BoardEntity(boardDTO.getId(), boardDTO.getBoardWriter(),
