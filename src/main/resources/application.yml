@@ -24,6 +24,9 @@ spring:
 
   thymeleaf:
     cache: false
+    # View Resolver 설정
+    prefix: classpath:templates/html/
+    suffix: .html
 
   # spring data jpa 설정
   jpa:
@@ -42,4 +45,3 @@ spring:
     # Spring Framework처럼 이름을 사용하기 편하게 바꿔주는게 아니라 길이를 줄여주는 역할.
     # IntelluJ는 자동완성을 지원하기 때문에 굳이 안써도 됨.
     # type-aliases-package: kotddari.board.dto
-
